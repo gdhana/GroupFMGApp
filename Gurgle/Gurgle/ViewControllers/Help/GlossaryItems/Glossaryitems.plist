@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>name</key>
+		<string>After pains</string>
+		<key>description</key>
+		<string>These are mild contractions or cramps that signal your uterus&apos; return to its non-pregnant size and shape. They are caused by the release of the hormone oxytocin during breastfeeding. They typically occur in the days immediately following the birth.</string>
+		<key>char</key>
+		<string>A</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Antenatal</string>
+		<key>description</key>
+		<string>This is simply the time before the birth. A medical abbreviation for the condition antepartum hemorrhage. This means bleeding before the birth. It isn&apos;t always serious, but should always be investigated immediately. </string>
+		<key>char</key>
+		<string>A</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Breech Position</string>
+		<key>description</key>
+		<string> Rather than being positioned with their head first, the foetus is positioned head up to be born buttock first, or with one or both feet first. </string>
+		<key>char</key>
+		<string>B</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Caesarean section</string>
+		<key>description</key>
+		<string> Instead of being born vaginally, if your baby is to be born via c-section an incision is made through the abdominal and uterine walls for extraction of the foetus. This incision is generally horizontal across the abdomen, and delivered under local anaesthetic. </string>
+		<key>char</key>
+		<string>C</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Cephalopelvic Disproportion</string>
+		<key>description</key>
+		<string> Instead of being born vaginally, if your baby is to be born via c-section an incision is made through the abdominal and uterine walls for extraction of the foetus. This incision is generally horizontal across the abdomen, and delivered under local anaesthetic. </string>
+		<key>char</key>
+		<string>C</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Contraction</string>
+		<key>description</key>
+		<string> The regular tightening of the uterus, working to push the baby down the birth canal. The more intense and closer together your contractions are, the closer you are to delivering your baby. </string>
+		<key>char</key>
+		<string>C</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Cord prolapse</string>
+		<key>description</key>
+		<string> Premature expulsion of the umbilical cord in labour before the foetus is delivered. Women who experience this should seek urgent medical attention.</string>
+		<key>char</key>
+		<string>C</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Crowning</string>
+		<key>description</key>
+		<string> The midwife will say your baby is crowning when the baby&apos;s head has passed through the birth canal, and the top of the head is visible in the vaginal opening. </string>
+		<key>char</key>
+		<string>C</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Dilation</string>
+		<key>description</key>
+		<string> The extent to which your cervix is open. You cannot start pushing until you are fully dilated  this is when you are 10cm dilated. </string>
+		<key>char</key>
+		<string>D</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Doula</string>
+		<key>description</key>
+		<string> A professional labour assistant - usually a woman - who provides emotional, physical and sometimes spiritual support to the mother during labour and birth. Doulas are hired privately by the mother, and are not available on the NHS. </string>
+		<key>char</key>
+		<string>D</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>EDD</string>
+		<key>description</key>
+		<string> This is simply short hand for your expected date of delivery. This is your due date; the date your midwife would expect your baby to arrive. Bear in mind most babies do not arrive on their due date. </string>
+		<key>char</key>
+		<string>E</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Epidural</string>
+		<key>description</key>
+		<string> This is a common anaesthetic used during labour. An epidural is inserted through a catheter which is threaded through a needle, into the dura space near the spinal cord.</string>
+		<key>char</key>
+		<string>E</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Episiotomy</string>
+		<key>description</key>
+		<string> An incision made to the perineum to widen the vaginal opening for delivery. This is usually given if the woman is struggling to deliver due to a lack of space for the baby&apos;s head to emerge. </string>
+		<key>char</key>
+		<string>E</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Foetus</string>
+		<key>description</key>
+		<string> The medical name for the baby before it is born</string>
+		<key>char</key>
+		<string>F</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Foetal distress</string>
+		<key>description</key>
+		<string> This means the baby is not getting enough oxygen or is experiencing another complication. If you hear the term &apos;foetal distress&apos; in the delivery room try not to panic and listen to advice from your midwife.</string>
+		<key>char</key>
+		<string>F</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>FM</string>
+		<key>description</key>
+		<string> This is medical shorthand for Foetal Movement. It may say “FM Felt&apos; or “FMF” on your medical notes  this means that your midwife or doctor has felt your baby moving and is happy with their level of activity. </string>
+		<key>char</key>
+		<string>F</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Forceps</string>
+		<key>description</key>
+		<string> These are a tong shaped device that may be used to guide your baby&apos;s head out of the birth canal if pushing if not creating enough force to guide the head down naturally. </string>
+		<key>char</key>
+		<string>F</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Induced labour</string>
+		<key>description</key>
+		<string> Labour is started artificially, either by breaking the waters, or by using drugs to bring on contractions. </string>
+		<key>char</key>
+		<string>I</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Lochia</string>
+		<key>description</key>
+		<string> The vaginal discharge of mucus, blood, and tissue. This will begin during labour, and may continue for up to six weeks after the birth of your baby.</string>
+		<key>char</key>
+		<string>L</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Macrosomia</string>
+		<key>description</key>
+		<string> Babies weighing more than 9 pounds and 15 ounces are considered macrosomic. This literally means &apos;of large body&apos; and isn&apos;t a complication; it just means you have a big baby. About 5 to 10 percent of babies are considered macrosomic.</string>
+		<key>char</key>
+		<string>M</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Meconium</string>
+		<key>description</key>
+		<string> This is effectively your baby&apos;s first bowel movement. It is a greenish substance that is released shortly after birth. </string>
+		<key>char</key>
+		<string>M</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Obstetrician</string>
+		<key>description</key>
+		<string> A specialist doctor or surgeon who deals only with pregnancy, childbirth and the immediate post/neo-natal period.</string>
+		<key>char</key>
+		<string>O</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Placenta Previa</string>
+		<key>description</key>
+		<string> When the placenta partially or completely covers the cervix. If you have placenta previa when it&apos;s time to deliver your baby, you&apos;ll need to have a c-section. </string>
+		<key>char</key>
+		<string>P</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Retained placenta</string>
+		<key>description</key>
+		<string> Retained placenta means that all or part of the placenta or membranes are left behind in the uterus (womb) during the third stage of labour. You&apos;ll be treated for a retained placenta if the third stage takes longer than usual or if there are signs that any of the placenta or membrane is still attached to the uterus.</string>
+		<key>char</key>
+		<string>R</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Ruptured membranes</string>
+		<key>description</key>
+		<string> This is more often referred to as &apos;broken waters&apos;. It refers to the breaking of the fluid filled sac surrounding the baby. The fluid may come as a gush of water or as a slow leak. </string>
+		<key>char</key>
+		<string>R</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Shoulder dystocia</string>
+		<key>description</key>
+		<string> Shoulder dystocia is a rare emergency that can happen during the end of the second stage of labour. It&apos;s all to do with how your baby moves down through your vagina and out into the world.  Shoulder dystocia happens when your baby&apos;s head has been born, but one of her shoulders becomes stuck.  </string>
+		<key>char</key>
+		<string>S</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Syntocinon</string>
+		<key>description</key>
+		<string> This is a drug that can be given to help with the third stage of labour  the delivery of the placenta. This will happen shortly after your baby is born. The drug can help speed up this process. </string>
+		<key>char</key>
+		<string>S</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Timing contractions</string>
+		<key>description</key>
+		<string> Contractions are measured from the beginning of one until the beginning of the next. The more intense and closer together the contractions are, the closer you are to being able to deliver your baby. </string>
+		<key>char</key>
+		<string>T</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Umbilical cord</string>
+		<key>description</key>
+		<string> The cord that transports blood, oxygen and nutrients to the baby from the placenta. After the delivery this can often be cut by the birth partner. </string>
+		<key>char</key>
+		<string>U</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Uterine Rupture</string>
+		<key>description</key>
+		<string> A uterine rupture is a tear in the wall of the uterus, most often at the site of a previous c-section incision. In a complete rupture, the tear goes through all layers of the uterine wall and the consequences can be dire for mother and baby. Fortunately these are very rare events.</string>
+		<key>char</key>
+		<string>U</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>VBAC</string>
+		<key>description</key>
+		<string> This is an abbreviation (often pronounced &apos;veeback&apos;) which stands for Vaginal Birth After Caesarean. Women having a VBAC are often examined and monitored more closely during their labour. </string>
+		<key>char</key>
+		<string>V</string>
+	</dict>
+</array>
+</plist>

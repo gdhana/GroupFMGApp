@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>A</key>
+	<array>
+		<string>Acupressure</string>
+		<string>After pains</string>
+		<string>Antenatal</string>
+		<string>APH</string>
+	</array>
+	<key>B</key>
+	<array>
+		<string>Breech Position</string>
+	</array>
+	<key>C</key>
+	<array>
+		<string>Caesarean section</string>
+		<string>Cephalopelvic Disproportion</string>
+		<string>Contraction</string>
+		<string>Cord Blood donation</string>
+		<string>Cord prolapse</string>
+		<string>Crowning</string>
+	</array>
+	<key>D</key>
+	<array>
+		<string>Dilation</string>
+		<string>Doula</string>
+	</array>
+	<key>E</key>
+	<array>
+		<string>EDD</string>
+		<string>Epidural</string>
+		<string>Episiotomy</string>
+	</array>
+	<key>F</key>
+	<array>
+		<string>Foetus</string>
+		<string>Foetal distress</string>
+		<string>FM</string>
+		<string>Forceps</string>
+	</array>
+	<key>G</key>
+	<array>
+		
+	</array>
+	<key>H</key>
+	<array>
+		<string>Hypnotherapy</string>
+	</array>
+	<key>I</key>
+	<array>
+		<string>Induced labour</string>
+	</array>
+	<key>J</key>
+	<array>
+
+	</array>
+	<key>K</key>
+	<array>
+
+	</array>
+	<key>L</key>
+	<array>
+		<string>Lactation Consultant</string>
+		<string>Lochia</string>
+	</array>
+	<key>M</key>
+	<array>
+		<string>Macrosomia</string>
+		<string>Meconium</string>
+	</array>
+	<key>N</key>
+	<array>
+	
+	</array>
+	<key>O</key>
+	<array>
+		<string> Obstetrician</string>
+	</array>
+	<key>P</key>
+	<array>
+		<string>Pethidine</string>
+		<string>Placenta Previa</string>
+	</array>
+	<key>Q</key>
+	<array>
+		
+	</array>
+	<key>R</key>
+	<array>
+		<string>Retained placenta</string>
+		<string>Ruptured membranes</string>
+	</array>
+	<key>S</key>
+	<array>
+		<string>Shoulder dystocia</string>
+		<string>Syntocinon</string>
+	</array>
+	<key>T</key>
+	<array>
+		<string>Timing contractions</string>
+	</array>
+	<key>U</key>
+	<array>
+		<string>Umbilical cord</string>
+		<string>Uterine Rupture</string>
+	</array>
+	<key>V</key>
+	<array>
+		<string>VBAC</string>
+		<string>Ventouse</string>
+		<string>Vitamin K</string>
+	</array>
+	<key>W</key>
+	<array>
+
+	</array>
+	<key>X</key>
+	<array>
+
+	</array>
+	<key>Y</key>
+	<array>
+		
+	</array>
+	<key>Z</key>
+	<array>
+		
+	</array>
+</dict>
+</plist>

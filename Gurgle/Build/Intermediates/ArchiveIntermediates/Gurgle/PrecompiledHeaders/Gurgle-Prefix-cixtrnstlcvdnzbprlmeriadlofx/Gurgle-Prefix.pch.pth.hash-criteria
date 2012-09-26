@@ -1,0 +1,29 @@
+Contents of /Users/dhanasekar.gunabalan/Desktop/Ravi/Gurgle/Gurgle/Gurgle-Prefix.pch
+4.1 (tags/Apple/clang-421.11.65) (based on LLVM 3.1svn)
+arm-apple-darwin11.4.0
+-x
+objective-c
+-arch
+armv7
+-fmessage-length=0
+-std=gnu99
+-fobjc-arc
+-fpascal-strings
+-Os
+-isysroot
+/Applications/Xcode_4.5.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk
+-g
+-fvisibility=hidden
+-DIBOutlet=__attribute__((iboutlet))
+-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))
+-DIBAction=void)__attribute__((ibaction)
+-miphoneos-version-min=4.3
+-iquote
+-iquote
+-I/Users/dhanasekar.gunabalan/Desktop/Ravi/Gurgle/Build/Intermediates/ArchiveIntermediates/Gurgle/BuildProductsPath/Release-iphoneos/include
+-I/Applications/Xcode_4.5.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include
+-I/Applications/Xcode_4.5.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include
+-I/Applications/Xcode_4.5.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include
+-F/Users/dhanasekar.gunabalan/Desktop/Ravi/Gurgle/Build/Intermediates/ArchiveIntermediates/Gurgle/BuildProductsPath/Release-iphoneos
+-DNS_BLOCK_ASSERTIONS=1
+SDK_PRODUCT_BUILD_VERSION=10A403
