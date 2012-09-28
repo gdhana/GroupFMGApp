@@ -50,7 +50,7 @@
     readStream = NULL;
     writeStream = NULL;
     
-    host = CFHostCreateWithName(NULL, (__bridge CFStringRef) hostName);
+    host = CFHostCreateWithName(NULL, (__bridge   CFStringRef) hostName);
     if (host != NULL) 
     {
         (void) CFStreamCreatePairWithSocketToCFHost(NULL, host, port, &readStream, &writeStream);
@@ -66,7 +66,7 @@
     } 
     else 
     {
-        *inputStream = (__bridge NSInputStream *) readStream;
+        *inputStream = (__bridge  NSInputStream *) readStream;
     }
     if (outputStream == NULL) 
     {
@@ -77,7 +77,7 @@
     } 
     else 
     {
-        *outputStream = (__bridge NSOutputStream *) writeStream;
+        *outputStream = (__bridge  NSOutputStream *) writeStream;
     }
 }
 @end
@@ -401,7 +401,7 @@ NSString *kSKPSMTPPartContentTransferEncodingKey = @"kSKPSMTPPartContentTransfer
                         
                         NSString *ehlo = [NSString stringWithFormat:@"EHLO %@\r\n", @"localhost"];
                       //  NSLog(@"C: %@", ehlo);
-                        if (CFWriteStreamWriteFully((__bridge CFWriteStreamRef)outputStream, (const uint8_t *)[ehlo UTF8String], [ehlo lengthOfBytesUsingEncoding:NSUTF8StringEncoding]) < 0)
+                        if (CFWriteStreamWriteFully((__bridge  CFWriteStreamRef)outputStream, (const uint8_t *)[ehlo UTF8String], [ehlo lengthOfBytesUsingEncoding:NSUTF8StringEncoding]) < 0)
                         {
                             error =  [outputStream streamError];
                             encounteredError = YES;
@@ -454,7 +454,7 @@ NSString *kSKPSMTPPartContentTransferEncodingKey = @"kSKPSMTPPartContentTransfer
                         
                         NSString *startTLS = @"STARTTLS\r\n";
                        // NSLog(@"C: %@", startTLS);
-                        if (CFWriteStreamWriteFully((__bridge CFWriteStreamRef)outputStream, (const uint8_t *)[startTLS UTF8String], [startTLS lengthOfBytesUsingEncoding:NSUTF8StringEncoding]) < 0)
+                        if (CFWriteStreamWriteFully((__bridge  CFWriteStreamRef)outputStream, (const uint8_t *)[startTLS UTF8String], [startTLS lengthOfBytesUsingEncoding:NSUTF8StringEncoding]) < 0)
                         {
                             error =  [outputStream streamError];
                             encounteredError = YES;
@@ -475,7 +475,7 @@ NSString *kSKPSMTPPartContentTransferEncodingKey = @"kSKPSMTPPartContentTransfer
                                 NSString *loginString = [NSString stringWithFormat:@"\000%@\000%@", login, pass];
                                 NSString *authString = [NSString stringWithFormat:@"AUTH PLAIN %@\r\n", [[loginString dataUsingEncoding:NSUTF8StringEncoding] encodeBase64ForData]];
                                // NSLog(@"C: %@", authString);
-                                if (CFWriteStreamWriteFully((__bridge CFWriteStreamRef)outputStream, (const uint8_t *)[authString UTF8String], [authString lengthOfBytesUsingEncoding:NSUTF8StringEncoding]) < 0)
+                                if (CFWriteStreamWriteFully((__bridge  CFWriteStreamRef)outputStream, (const uint8_t *)[authString UTF8String], [authString lengthOfBytesUsingEncoding:NSUTF8StringEncoding]) < 0)
                                 {
                                     error =  [outputStream streamError];
                                     encounteredError = YES;
@@ -490,7 +490,7 @@ NSString *kSKPSMTPPartContentTransferEncodingKey = @"kSKPSMTPPartContentTransfer
                                 sendState = kSKPSMTPWaitingLOGINUsernameReply;
                                 NSString *authString = @"AUTH LOGIN\r\n";
                                // NSLog(@"C: %@", authString);
-                                if (CFWriteStreamWriteFully((__bridge CFWriteStreamRef)outputStream, (const uint8_t *)[authString UTF8String], [authString lengthOfBytesUsingEncoding:NSUTF8StringEncoding]) < 0)
+                                if (CFWriteStreamWriteFully((__bridge  CFWriteStreamRef)outputStream, (const uint8_t *)[authString UTF8String], [authString lengthOfBytesUsingEncoding:NSUTF8StringEncoding]) < 0)
                                 {
                                     error =  [outputStream streamError];
                                     encounteredError = YES;
@@ -518,7 +518,7 @@ NSString *kSKPSMTPPartContentTransferEncodingKey = @"kSKPSMTPPartContentTransfer
                             
                             NSString *mailFrom = [NSString stringWithFormat:@"MAIL FROM:<%@>\r\n", fromEmail];
                             //NSLog(@"C: %@", mailFrom);
-                            if (CFWriteStreamWriteFully((__bridge CFWriteStreamRef)outputStream, (const uint8_t *)[mailFrom UTF8String], [mailFrom lengthOfBytesUsingEncoding:NSUTF8StringEncoding]) < 0)
+                            if (CFWriteStreamWriteFully((__bridge  CFWriteStreamRef)outputStream, (const uint8_t *)[mailFrom UTF8String], [mailFrom lengthOfBytesUsingEncoding:NSUTF8StringEncoding]) < 0)
                             {
                                 error =  [outputStream streamError];
                                 encounteredError = YES;
@@ -555,8 +555,8 @@ NSString *kSKPSMTPPartContentTransferEncodingKey = @"kSKPSMTPPartContentTransfer
                         
                         //NSLog(@"Beginning TLSv1...");
                         
-                        CFReadStreamSetProperty((__bridge CFReadStreamRef)inputStream, kCFStreamPropertySSLSettings, sslOptions);
-                        CFWriteStreamSetProperty((__bridge CFWriteStreamRef)outputStream, kCFStreamPropertySSLSettings, sslOptions);
+                        CFReadStreamSetProperty(( CFReadStreamRef)inputStream, kCFStreamPropertySSLSettings, sslOptions);
+                        CFWriteStreamSetProperty(( CFWriteStreamRef)outputStream, kCFStreamPropertySSLSettings, sslOptions);
                         
                         CFRelease(sslOptions);
                         
@@ -567,7 +567,7 @@ NSString *kSKPSMTPPartContentTransferEncodingKey = @"kSKPSMTPPartContentTransfer
                         NSString *ehlo = [NSString stringWithFormat:@"EHLO %@\r\n", @"localhost"];
                        // NSLog(@"C: %@", ehlo);
                         
-                        if (CFWriteStreamWriteFully((__bridge CFWriteStreamRef)outputStream, (const uint8_t *)[ehlo UTF8String], [ehlo lengthOfBytesUsingEncoding:NSUTF8StringEncoding]) < 0)
+                        if (CFWriteStreamWriteFully((__bridge  CFWriteStreamRef)outputStream, (const uint8_t *)[ehlo UTF8String], [ehlo lengthOfBytesUsingEncoding:NSUTF8StringEncoding]) < 0)
                         {
                             error =  [outputStream streamError];
                             encounteredError = YES;
@@ -598,7 +598,7 @@ NSString *kSKPSMTPPartContentTransferEncodingKey = @"kSKPSMTPPartContentTransfer
                         
                         NSString *authString = [NSString stringWithFormat:@"%@\r\n", [[login dataUsingEncoding:NSUTF8StringEncoding] encodeBase64ForData]];
                        // NSLog(@"C: %@", authString);
-                        if (CFWriteStreamWriteFully((__bridge CFWriteStreamRef)outputStream, (const uint8_t *)[authString UTF8String], [authString lengthOfBytesUsingEncoding:NSUTF8StringEncoding]) < 0)
+                        if (CFWriteStreamWriteFully((__bridge  CFWriteStreamRef)outputStream, (const uint8_t *)[authString UTF8String], [authString lengthOfBytesUsingEncoding:NSUTF8StringEncoding]) < 0)
                         {
                             error =  [outputStream streamError];
                             encounteredError = YES;
@@ -619,7 +619,7 @@ NSString *kSKPSMTPPartContentTransferEncodingKey = @"kSKPSMTPPartContentTransfer
                         
                         NSString *authString = [NSString stringWithFormat:@"%@\r\n", [[pass dataUsingEncoding:NSUTF8StringEncoding] encodeBase64ForData]];
                         //NSLog(@"C: %@", authString);
-                        if (CFWriteStreamWriteFully((__bridge CFWriteStreamRef)outputStream, (const uint8_t *)[authString UTF8String], [authString lengthOfBytesUsingEncoding:NSUTF8StringEncoding]) < 0)
+                        if (CFWriteStreamWriteFully((__bridge  CFWriteStreamRef)outputStream, (const uint8_t *)[authString UTF8String], [authString lengthOfBytesUsingEncoding:NSUTF8StringEncoding]) < 0)
                         {
                             error =  [outputStream streamError];
                             encounteredError = YES;
@@ -640,7 +640,7 @@ NSString *kSKPSMTPPartContentTransferEncodingKey = @"kSKPSMTPPartContentTransfer
                         
                         NSString *mailFrom = server8bitMessages ? [NSString stringWithFormat:@"MAIL FROM:<%@> BODY=8BITMIME\r\n", fromEmail] : [NSString stringWithFormat:@"MAIL FROM:<%@>\r\n", fromEmail];
                        // NSLog(@"C: %@", mailFrom);
-                        if (CFWriteStreamWriteFully((__bridge CFWriteStreamRef)outputStream, (const uint8_t *)[mailFrom cStringUsingEncoding:NSASCIIStringEncoding], [mailFrom lengthOfBytesUsingEncoding:NSASCIIStringEncoding]) < 0)
+                        if (CFWriteStreamWriteFully((__bridge  CFWriteStreamRef)outputStream, (const uint8_t *)[mailFrom cStringUsingEncoding:NSASCIIStringEncoding], [mailFrom lengthOfBytesUsingEncoding:NSASCIIStringEncoding]) < 0)
                         {
                             error =  [outputStream streamError];
                             encounteredError = YES;
@@ -675,7 +675,7 @@ NSString *kSKPSMTPPartContentTransferEncodingKey = @"kSKPSMTPPartContentTransfer
                         [multipleRcptTo appendString:[self formatAddresses:bccEmail]];
                         
                        //// NSLog(@"C: %@", multipleRcptTo);
-                        if (CFWriteStreamWriteFully((__bridge CFWriteStreamRef)outputStream, (const uint8_t *)[multipleRcptTo UTF8String], [multipleRcptTo lengthOfBytesUsingEncoding:NSUTF8StringEncoding]) < 0)
+                        if (CFWriteStreamWriteFully((__bridge  CFWriteStreamRef)outputStream, (const uint8_t *)[multipleRcptTo UTF8String], [multipleRcptTo lengthOfBytesUsingEncoding:NSUTF8StringEncoding]) < 0)
                         {
                             error =  [outputStream streamError];
                             encounteredError = YES;
@@ -695,7 +695,7 @@ NSString *kSKPSMTPPartContentTransferEncodingKey = @"kSKPSMTPPartContentTransfer
                         
                         NSString *dataString = @"DATA\r\n";
                        // NSLog(@"C: %@", dataString);
-                        if (CFWriteStreamWriteFully((__bridge CFWriteStreamRef)outputStream, (const uint8_t *)[dataString UTF8String], [dataString lengthOfBytesUsingEncoding:NSUTF8StringEncoding]) < 0)
+                        if (CFWriteStreamWriteFully((__bridge  CFWriteStreamRef)outputStream, (const uint8_t *)[dataString UTF8String], [dataString lengthOfBytesUsingEncoding:NSUTF8StringEncoding]) < 0)
                         {
                             error =  [outputStream streamError];
                             encounteredError = YES;
@@ -745,7 +745,7 @@ NSString *kSKPSMTPPartContentTransferEncodingKey = @"kSKPSMTPPartContentTransfer
                         
                         NSString *quitString = @"QUIT\r\n";
                        // NSLog(@"C: %@", quitString);
-                        if (CFWriteStreamWriteFully((__bridge CFWriteStreamRef)outputStream, (const uint8_t *)[quitString UTF8String], [quitString lengthOfBytesUsingEncoding:NSUTF8StringEncoding]) < 0)
+                        if (CFWriteStreamWriteFully((__bridge  CFWriteStreamRef)outputStream, (const uint8_t *)[quitString UTF8String], [quitString lengthOfBytesUsingEncoding:NSUTF8StringEncoding]) < 0)
                         {
                             error =  [outputStream streamError];
                             encounteredError = YES;
@@ -803,7 +803,7 @@ NSString *kSKPSMTPPartContentTransferEncodingKey = @"kSKPSMTPPartContentTransfer
     static NSString *separatorString = @"--SKPSMTPMessage--Separator--Delimiter\r\n";
     
     CFUUIDRef       uuidRef   = CFUUIDCreate(kCFAllocatorDefault);
-    NSString        *uuid     = (__bridge NSString *)CFUUIDCreateString(kCFAllocatorDefault, uuidRef);
+    NSString        *uuid     = (__bridge  NSString *)CFUUIDCreateString(kCFAllocatorDefault, uuidRef);
     CFRelease(uuidRef);
     
     NSDate *now = [[NSDate alloc] init];
@@ -840,7 +840,7 @@ NSString *kSKPSMTPPartContentTransferEncodingKey = @"kSKPSMTPPartContentTransfer
  //   [message release];
     
   //  NSLog(@"C: %s", [messageData bytes], [messageData length]);
-    if (CFWriteStreamWriteFully((__bridge CFWriteStreamRef)outputStream, (const uint8_t *)[messageData bytes], [messageData length]) < 0)
+    if (CFWriteStreamWriteFully((__bridge  CFWriteStreamRef)outputStream, (const uint8_t *)[messageData bytes], [messageData length]) < 0)
     {
         return NO;
     }
@@ -863,7 +863,7 @@ NSString *kSKPSMTPPartContentTransferEncodingKey = @"kSKPSMTPPartContentTransfer
     [message appendString:@"\r\n.\r\n"];
     
    // NSLog(@"C: %@", message);
-    if (CFWriteStreamWriteFully((__bridge CFWriteStreamRef)outputStream, (const uint8_t *)[message UTF8String], [message lengthOfBytesUsingEncoding:NSUTF8StringEncoding]) < 0)
+    if (CFWriteStreamWriteFully((__bridge  CFWriteStreamRef)outputStream, (const uint8_t *)[message UTF8String], [message lengthOfBytesUsingEncoding:NSUTF8StringEncoding]) < 0)
     {
       //  [message release];
         return NO;

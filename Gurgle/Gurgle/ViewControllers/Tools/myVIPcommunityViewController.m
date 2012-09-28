@@ -24,40 +24,19 @@
 @implementation myVIPcommunityViewController
 
 @synthesize contactGroupPeople, selectedContactMethod;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
-//    bottombanner.animationImages = [NSArray arrayWithObjects: 
-//                                    [UIImage imageNamed:@"huggies_banner.png"],                              
-//                                    [UIImage imageNamed:@"Banner1.jpg"],[UIImage imageNamed:@"Banner2.jpg"],[UIImage imageNamed:@"Banner3.jpg"],[UIImage imageNamed:@"Banner4.jpg"],[UIImage imageNamed:@"Banner5.jpg"], nil];
-//    bottombanner.animationDuration = 25.0; // seconds
-//    bottombanner.animationRepeatCount = 0; //0 loops for ever/noted
-//    [bottombanner startAnimating];
-    
+    contactGroupPeople = [[NSMutableArray alloc] init];
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+	// Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)viewDidUnload
 {
-    bottombanner = nil;
-    Topbanner = nil;
+    editButton = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
-
-
-
 - (void)viewWillAppear:(BOOL)animated
 {
     contactGroupPeople = [[[NSUserDefaults standardUserDefaults] objectForKey:@"vipCommunity"] mutableCopy];
@@ -75,11 +54,15 @@
     {
         contactsTableView.hidden = NO;
         noContactsLabel.hidden = YES;
+        editButton.enabled = YES;
+        editButton.target = self;
+        editButton.action = @selector(startEditing:);
     }
     else
     {
         contactsTableView.hidden = YES;
         noContactsLabel.hidden = NO;
+        editButton.enabled = NO;
     }
     for (NSDictionary *contactPerson in contactGroupPeople)
     {
@@ -214,20 +197,50 @@
 }
 - (IBAction)addContacts:(id)sender
 {
-    
+    if ([contactsTableView isEditing])
+    {
+        [self stopEditing:nil];
+    }
     AddressBookViewController *adddView = [[AddressBookViewController alloc] initWithNibName:@"AddressBookViewController" bundle:nil];
     UINavigationController *addressNav = [[UINavigationController alloc] initWithRootViewController:adddView];
     [self presentModalViewController:addressNav animated:YES];
     
 }
-
+- (void)storeEditedDetailsForPerson:(NSDictionary *)person atLocation:(int)location
+{
+    if ([[person objectForKey:@"emailAddress"] isEqualToString:@""] && [[person objectForKey:@"phoneNumber"] isEqualToString:@""])
+    {
+        [contactGroupPeople removeObjectAtIndex:location];
+    }
+    else
+    {
+        [contactGroupPeople replaceObjectAtIndex:location
+                                      withObject:person];
+    }
+    [[NSUserDefaults standardUserDefaults] setObject:contactGroupPeople forKey:@"vipCommunity"];
+    [contactsTableView reloadData];
+    [self dismissModalViewControllerAnimated:YES];
+}
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
 #pragma mark - Table view data source
-
+- (IBAction)startEditing:(id)sender
+{
+    [contactsTableView setEditing:YES];
+    editButton.style = UIBarButtonItemStyleDone;
+    editButton.title = @"Done";
+    editButton.action = @selector(stopEditing:);
+}
+- (IBAction)stopEditing:(id)sender
+{
+    [contactsTableView setEditing:NO];
+    editButton.style = UIBarButtonItemStyleBordered;
+    editButton.title = @"Edit";
+    editButton.action = @selector(startEditing:);
+}
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
@@ -269,17 +282,15 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [contactGroupPeople removeObjectAtIndex:indexPath.row];
-        NSLog(@"%@",contactGroupPeople);
         [[NSUserDefaults standardUserDefaults] setObject:contactGroupPeople forKey:@"vipCommunity"];
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
         [self checkContactAvailabilityity];
         
-    }   
+    }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    }
 }
-
 
 
 
@@ -287,16 +298,18 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    
+    AddressBookDetailViewController *addressBookDetail = [[AddressBookDetailViewController alloc] initWithNibName:@"AddressBookDetailViewController" bundle:nil];
+    addressBookDetail.person = [[[contactGroupPeople objectAtIndex:indexPath.row] objectForKey:@"personRecord"] intValue];
+    addressBookDetail.isEditing = YES;
+    addressBookDetail.personDetails = [contactGroupPeople objectAtIndex:indexPath.row];
+    addressBookDetail.contactGroupRecordID = indexPath.row;
+    addressBookDetail.delegate = self;
+    UINavigationController *detailNav = [[UINavigationController alloc] initWithRootViewController:addressBookDetail];
+    detailNav.navigationBar.tintColor = [UIColor colorWithRed:63.0/255.0 green:206.0/255.0 blue:245.0/255.0 alpha:1.0];
+    [self presentModalViewController:detailNav animated:YES];
+    
 }
-
-
 
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -346,29 +359,6 @@
     [self presentModalViewController:HelpView animated:YES];
 }
 
-- (IBAction)Edit:(id)sender {
-    if(self.editing)
-	{
-		[super setEditing:NO animated:NO]; 
-		[contactsTableView setEditing:NO animated:NO];
-		[contactsTableView reloadData];
-        Edit.title = @"Edit";
-        Edit.style = UIBarButtonSystemItemEdit;
-		//[self.navigationItem.leftBarButtonItem setTitle:@"Edit"];
-		//[self.navigationItem.leftBarButtonItem setStyle:UIBarButtonItemStylePlain];
-	}
-	else
-	{
-		[super setEditing:YES animated:YES]; 
-		[contactsTableView setEditing:YES animated:YES];
-		[contactsTableView reloadData];
-        Edit.title = @"Done";
-        Edit.style = UIBarButtonSystemItemDone;
-		//[self.navigationItem.leftBarButtonItem setTitle:@"Done"];
-		//[self.navigationItem.leftBarButtonItem setStyle:UIBarButtonItemStyleDone];
-	}
-
-}
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
 }

@@ -15,6 +15,7 @@
 @end
 
 @implementation AddressBookViewController
+
 @synthesize peopleArray;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

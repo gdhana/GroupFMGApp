@@ -14,7 +14,7 @@
 @end
 
 @implementation AddressBookDetailViewController
-@synthesize person, delegate;
+@synthesize person, delegate, isEditing, personDetails, contactGroupRecordID;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -23,6 +23,7 @@
         emailLabelsArray = [[NSMutableArray alloc] init];
         phoneLabelsArray = [[NSMutableArray alloc] init];
         phoneNumbersArray = [[NSMutableArray alloc] init];
+        //personDetails = [[NSMutableDictionary alloc] init];
 //        selectedEmailAddress = @"";
 //        selectedPhoneNumber = @"";
     }
@@ -50,32 +51,62 @@
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
-- (void)done:(id)sender
+- (void)savePerson
 {
+    personDetails = [[NSMutableDictionary alloc] init];
     ABAddressBookRef addressBook = ABAddressBookCreate();
     ABRecordRef recordRef = ABAddressBookGetPersonWithRecordID(addressBook, person);
     NSString *personName = (__bridge NSString *)ABRecordCopyCompositeName(recordRef);
-    NSMutableDictionary *newPerson = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-                                      personName,@"compositeName",
-                                      firstName, @"firstName",
-                                      lastName, @"lastName"
-                                      , nil];
+    [personDetails setObject:personName forKey:@"compositeName"];
+    [personDetails setObject:firstName forKey:@"firstName"];
+    [personDetails setObject:lastName forKey:lastName];
+    
+    
     if (selectedPhoneNumber)
     {
-        [newPerson setObject:selectedPhoneNumber forKey:@"phoneNumber"];
+        [personDetails setObject:selectedPhoneNumber forKey:@"phoneNumber"];
     }
     if (selectedEmailAddress)
     {
-        [newPerson setObject:selectedEmailAddress forKey:@"emailAddress"];
+        [personDetails setObject:selectedEmailAddress forKey:@"emailAddress"];
     }
-    [delegate addPersonToCommunity:newPerson];
-    NSLog(@"%@",newPerson);
+    [personDetails setObject: [NSString stringWithFormat:@"%d",person] forKey:@"personRecord"];
+}
+- (void)done:(id)sender
+{
+    [self savePerson];
+    [delegate addPersonToCommunity:personDetails];
     [self.navigationController popViewControllerAnimated:YES];
     
 }
+- (void)cancelEdit:(id)sender
+{
+    [self dismissModalViewControllerAnimated:YES];
+}
+- (void)saveEdit:(id)sender
+{
+    [self savePerson];
+    [delegate storeEditedDetailsForPerson:personDetails atLocation:contactGroupRecordID];
+}
 - (void)viewDidLoad
 {
-
+    if (isEditing)
+    {
+        
+        UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(saveEdit:)];
+        UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelEdit:)];
+        self.navigationItem.leftBarButtonItem = cancel;
+        self.navigationItem.rightBarButtonItem = done;
+        if ([personDetails objectForKey:@"emailAddress"])
+        {
+            selectedEmailAddress = [personDetails objectForKey:@"emailAddress"];
+        }
+        if ([personDetails objectForKey:@"phoneNumber"])
+        {
+            selectedPhoneNumber = [personDetails objectForKey:@"phoneNumber"];
+        }
+        
+    }
     ABAddressBookRef addressBook = ABAddressBookCreate();
     ABRecordRef recordRef = ABAddressBookGetPersonWithRecordID(addressBook, person);
     NSString *personName = (__bridge NSString *)ABRecordCopyCompositeName(recordRef);

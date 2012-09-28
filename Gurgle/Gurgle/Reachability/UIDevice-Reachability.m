@@ -75,7 +75,7 @@ SCNetworkReachabilityRef reachability;
     if (addressData != nil)
     {
 		struct sockaddr_in addrIn = *(struct sockaddr_in *)[addressData bytes];
-		port = [NSString stringWithFormat: @"%s", ntohs(addrIn.sin_port)];
+		port = [NSString stringWithFormat: @"%c", ntohs(addrIn.sin_port)];
     }
 	
     return port;
@@ -339,7 +339,7 @@ static void myClientCallback(void *refCon)
 static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkConnectionFlags flags, void* info)
 {
     @autoreleasepool {
-        id watcher = (__bridge id) info;
+        id watcher = (id) info;
         SEL changed = @selector(reachabilityChanged);
         if ([watcher respondsToSelector:changed])
             [watcher performSelector:changed];
@@ -357,7 +357,7 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkConne
 	
 	[self pingReachabilityInternal];
 
-	SCNetworkReachabilityContext context = {0, (__bridge void *)watcher, NULL, NULL, NULL};
+	SCNetworkReachabilityContext context = {0, (void *)watcher, NULL, NULL, NULL};
 	if(SCNetworkReachabilitySetCallback(reachability, ReachabilityCallback, &context)) 
 	{
 		if(!SCNetworkReachabilityScheduleWithRunLoop(reachability, CFRunLoopGetCurrent(), kCFRunLoopCommonModes)) 

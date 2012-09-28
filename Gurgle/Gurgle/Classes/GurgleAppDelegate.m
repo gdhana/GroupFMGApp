@@ -39,7 +39,7 @@
 //    [locationManager startUpdatingLocation];
     
     sleep(5);
-   // [self Emailsend];
+    [self Emailsend];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.IntroScreenViewController = [[IntroScreenViewController alloc] initWithNibName:@"IntroScreenViewController" bundle:nil];

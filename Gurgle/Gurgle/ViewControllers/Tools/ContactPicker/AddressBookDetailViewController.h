@@ -10,6 +10,7 @@
 #import <AddressBook/AddressBook.h>
 @protocol AddressBookDetailDelegate <NSObject>
 - (void)addPersonToCommunity:(NSDictionary *)person;
+- (void)storeEditedDetailsForPerson:(NSDictionary *)person atLocation:(int)location;
 @end
 
 @interface AddressBookDetailViewController : UIViewController
@@ -27,7 +28,12 @@
     NSString *lastName;
     NSString *selectedPhoneNumber;
     NSString *selectedEmailAddress;
+    
+
 }
 @property (nonatomic, retain) id<AddressBookDetailDelegate>delegate;
 @property (assign) ABRecordID person;
+@property (assign) BOOL isEditing;
+@property (nonatomic, retain) NSMutableDictionary *personDetails;
+@property (assign) int contactGroupRecordID;
 @end

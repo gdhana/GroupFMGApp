@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <AddressBookUI/AddressBookUI.h>
 #import <MessageUI/MessageUI.h>
+#import "AddressBookDetailViewController.h"
 
-@interface myVIPcommunityViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface myVIPcommunityViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, AddressBookDetailDelegate>
 {
     IBOutlet UIImageView *bottombanner;
     IBOutlet UIImageView *Topbanner;
@@ -21,7 +22,7 @@
     IBOutlet UIBarButtonItem *sendSMS;
     IBOutlet UIBarButtonItem *sendMail;
     IBOutlet UIBarButtonItem *sendPhoto;
-    IBOutlet UIBarButtonItem *Edit;
+    IBOutlet UIBarButtonItem *editButton;
     
 }
 - (IBAction)myVIPcommunityinfoView:(id)sender;
@@ -31,7 +32,7 @@
 - (IBAction)FunView:(id)sender;
 - (IBAction)HelpView:(id)sender;
 
-- (IBAction)Edit:(id)sender;
+
 
 @property (nonatomic, retain) NSString *selectedContactMethod;
 @property (nonatomic, retain) NSMutableArray *contactGroupPeople;

@@ -23,7 +23,7 @@
 
 @synthesize Glossarytitles;
 @synthesize descript;
-NSString *glossarydetails;
+//NSString *glossarydetails;
 
 NSString *glossaryTitle;
 NSString *glossarydetails;
